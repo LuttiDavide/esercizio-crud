@@ -1,12 +1,16 @@
 package co.develhope.eserciziocrud.entities;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import lombok.Setter;
-import org.springframework.data.annotation.Id;
+import co.develhope.eserciziocrud.entities.Enum.CarType;
+import jakarta.persistence.*;
+import lombok.AllArgsConstructor;
+import lombok.Data;
+import lombok.NoArgsConstructor;
 
 @Entity
+@Data
+@Table
+@NoArgsConstructor
+@AllArgsConstructor
 public class Car {
 
     @Id
@@ -15,7 +19,7 @@ public class Car {
 
     private String modelName;
 
-    @Setter
-    private String type;
+    @Enumerated(EnumType.STRING)
+    private CarType type;
 
 }
